@@ -56,7 +56,7 @@ Filter notifications by type:
 - **Result**: Exam/Interview results
 - **Event**: Campus events
 
-![Notifications Filtered by Placement](../notification_app_be/screenshots/notifications_filtered_placement.png)
+![Notifications Filtered by Placement](./notification_app_be/screenshots/notifications_filtered_placement.png)
 
 ### Responsive Design
 The interface adapts to different screen sizes:
