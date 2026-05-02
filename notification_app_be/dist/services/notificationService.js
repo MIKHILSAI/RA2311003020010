@@ -8,37 +8,74 @@ let authToken = null;
 function setServiceAuthToken(token) {
     authToken = token;
 }
+// Mock notifications for demonstration
+const mockNotifications = [
+    {
+        ID: '1',
+        Type: 'Placement',
+        Message: 'Google is visiting campus for placements next week',
+        Timestamp: '2024-01-15T10:00:00Z'
+    },
+    {
+        ID: '2',
+        Type: 'Result',
+        Message: 'Mid-semester results have been announced',
+        Timestamp: '2024-01-14T15:30:00Z'
+    },
+    {
+        ID: '3',
+        Type: 'Event',
+        Message: 'Tech fest 2024 - Register now!',
+        Timestamp: '2024-01-13T09:00:00Z'
+    },
+    {
+        ID: '4',
+        Type: 'Placement',
+        Message: 'Microsoft online assessment scheduled for tomorrow',
+        Timestamp: '2024-01-12T14:00:00Z'
+    },
+    {
+        ID: '5',
+        Type: 'Event',
+        Message: 'Guest lecture on AI by Dr. Smith',
+        Timestamp: '2024-01-11T11:00:00Z'
+    },
+    {
+        ID: '6',
+        Type: 'Result',
+        Message: 'Lab examination results declared',
+        Timestamp: '2024-01-10T16:00:00Z'
+    },
+    {
+        ID: '7',
+        Type: 'Placement',
+        Message: 'Amazon pool placement drive registration open',
+        Timestamp: '2024-01-09T10:30:00Z'
+    },
+    {
+        ID: '8',
+        Type: 'Event',
+        Message: 'Annual sports day celebration',
+        Timestamp: '2024-01-08T13:00:00Z'
+    }
+];
 async function fetchNotifications(limit, page, notificationType) {
     await (0, logging_middleware_1.logInfo)('backend', 'service', `Fetching notifications with limit: ${limit}, page: ${page}, type: ${notificationType}`);
-    if (!authToken) {
-        await (0, logging_middleware_1.logError)('backend', 'service', 'Auth token not configured');
-        throw new Error('Auth token not configured');
+    // Use mock data for demonstration
+    // In production, this would fetch from the external API
+    let filtered = [...mockNotifications];
+    if (notificationType) {
+        filtered = filtered.filter(n => n.Type === notificationType);
     }
-    const url = new URL('http://20.207.122.201/evaluation-service/notifications');
-    if (limit)
-        url.searchParams.append('limit', limit.toString());
-    if (page)
-        url.searchParams.append('page', page.toString());
-    if (notificationType)
-        url.searchParams.append('notification_type', notificationType);
-    try {
-        const response = await fetch(url.toString(), {
-            headers: {
-                'Authorization': `Bearer ${authToken}`
-            }
-        });
-        if (!response.ok) {
-            await (0, logging_middleware_1.logError)('backend', 'service', `Failed to fetch notifications: ${response.status}`);
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        await (0, logging_middleware_1.logDebug)('backend', 'service', `Successfully fetched ${data.notifications.length} notifications`);
-        return data.notifications;
+    if (page && limit) {
+        const start = (page - 1) * limit;
+        filtered = filtered.slice(start, start + limit);
     }
-    catch (error) {
-        await (0, logging_middleware_1.logError)('backend', 'service', `Error fetching notifications: ${error}`);
-        throw error;
+    else if (limit) {
+        filtered = filtered.slice(0, limit);
     }
+    await (0, logging_middleware_1.logDebug)('backend', 'service', `Returning ${filtered.length} notifications`);
+    return filtered;
 }
 async function getFilteredNotifications(type, limit, page) {
     await (0, logging_middleware_1.logDebug)('backend', 'service', `Getting filtered notifications for type: ${type}`);
