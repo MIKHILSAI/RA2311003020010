@@ -1,0 +1,22 @@
+
+{
+  "name": "campus-notifications-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd notification_app_be && npm install && cd ../logging-middleware && npm install && cd ../notification_app_fe && npm install",
+    "start:backend": "cd notification_app_be && npm start",
+    "start:frontend": "cd notification_app_fe && npm start",
+    "start:all": "npm run start:backend & npm run start:foreground",
+    "build": "cd notification_app_be && npm run build && cd ../notification_app_fe && npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "description": "Campus Notifications App - Frontend and Backend integrated",
+  "scripts": {
+    "start:backend": "cd notification_app_be && npm start",
+    "start:frontend": "cd notification_app_fe && npm start"
+  }
+}
