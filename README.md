@@ -37,7 +37,7 @@ View all campus notifications with:
 - Pagination for easy navigation
 - Mark as read functionality
 
-![All Notifications Dashboard](../notification_app_be/screenshots/all_notifications_dashboard.png)
+![All Notifications Dashboard](./notification_app_be/screenshots/all_notifications_dashboard.png)
 
 ### Priority Inbox
 View priority notifications sorted by importance:
@@ -45,9 +45,9 @@ View priority notifications sorted by importance:
 - Filter by type
 - Quick access to important updates
 
-![Priority Inbox All Notifications](../notification_app_be/screenshots/priority_inbox_all_notifications.png)
+![Priority Inbox All Notifications](./notification_app_be/screenshots/priority_inbox_all_notifications.png)
 
-![Priority Inbox Filtered Results](../notification_app_be/screenshots/priority_inbox_filtered_results.png)
+![Priority Inbox Filtered Results](./notification_app_be/screenshots/priority_inbox_filtered_results.png)
 
 ### Filtering
 Filter notifications by type:
@@ -64,7 +64,7 @@ The interface adapts to different screen sizes:
 - Tablet
 - Mobile
 
-![Responsive for All Devices](../notification_app_be/screenshots/responsive_for_all_devices.png)
+![Responsive for All Devices](./notification_app_be/screenshots/responsive_for_all_devices.png)
 
 ## Connecting to Backend
 
@@ -119,11 +119,11 @@ Users can:
 ## Screenshots Reference
 
 All screenshots are stored in the backend screenshots folder:
-- `../notification_app_be/screenshots/all_notifications_dashboard.png`
-- `../notification_app_be/screenshots/notifications_filtered_placement.png`
-- `../notification_app_be/screenshots/priority_inbox_all_notifications.png`
-- `../notification_app_be/screenshots/priority_inbox_filtered_results.png`
-- `../notification_app_be/screenshots/responsive_for_all_devices.png`
+- `./notification_app_be/screenshots/all_notifications_dashboard.png`
+- `./notification_app_be/screenshots/notifications_filtered_placement.png`
+- `./notification_app_be/screenshots/priority_inbox_all_notifications.png`
+- `./notification_app_be/screenshots/priority_inbox_filtered_results.png`
+- `./notification_app_be/screenshots/responsive_for_all_devices.png`
 
 ## Running with Backend
 
@@ -193,7 +193,7 @@ GET /health
 
 Returns the health status of the API.
 
-![Health Check](./screenshots/health-check.png)
+![Health Check](./notification_app_be/screenshots/health-check.png)
 
 ### Get All Notifications
 
@@ -209,7 +209,7 @@ Query Parameters:
 | notification_type | string | Filter by type (Placement, Result, Event) |
 
 Example Response:
-![Notifications API Response](./screenshots/notifications_api_response.png)
+![Notifications API Response](./notification_app_be/screenshots/notifications_api_response.png)
 
 ### Get Priority Notifications
 
@@ -263,19 +263,19 @@ src/
 ## Screenshots
 
 ### All Notifications Dashboard
-![All Notifications Dashboard](./screenshots/all_notifications_dashboard.png)
+![All Notifications Dashboard](./notification_app_be/screenshots/all_notifications_dashboard.png)
 
 ### Filtered by Placement
-![Filtered Placement](./screenshots/notifications_filtered_placement.png)
+![Filtered Placement](./notification_app_be/screenshots/notifications_filtered_placement.png)
 
 ### Priority Inbox - All Notifications
-![Priority Inbox All](./screenshots/priority_inbox_all_notifications.png)
+![Priority Inbox All](./notification_app_be/screenshots/priority_inbox_all_notifications.png)
 
 ### Priority Inbox - Filtered Results
-![Priority Inbox Filtered](./screenshots/priority_inbox_filtered_results.png)
+![Priority Inbox Filtered](./notification_app_be/screenshots/priority_inbox_filtered_results.png)
 
 ### Responsive Design
-![Responsive](./screenshots/responsive_for_all_devices.png)
+![Responsive](./notification_app_be/screenshots/responsive_for_all_devices.png)
 
 ## API Response Format
 
@@ -293,7 +293,5 @@ src/
   ]
 }
 ```
-
-## Connecting to Frontend
 
 The frontend is configured to connect to this backend. See [notification_app_fe](../notification_app_fe/README.md) for frontend setup instructions.
